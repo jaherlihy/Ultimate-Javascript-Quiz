@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Javascript Quiz</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body>
+
+<nav class = "nav-bar">
+
+	<div class = "high-scores">
+		<button id="high-scores-btn" onclick="parent.location.href='high-scores.html'" class="button">High Scores</button>
+	</div>	
+
+	<div class="timer-wrapper">
+		<h3 class="timer-text">Time Remaining:</h3><div class="timer-count">60</div>
+	</div>
+    
+</nav>
+	
+<div class="wrapper">
+
+	<div ID="intro-title-card" class ="card">
+		<header>
+		 <h1 class="h1">The Ultimate Javascript Quiz</h1>
+		</header>
+
+		<h2 class="intro">Answer as many questions as possible before the timer runs out. You receive a penalty of -10 seconds from the timer for every incorrect answer. If you answer all the questions before the timer runs out the remaining time becomes your score.
+		</h2>
+		
+		<div class = start-btn-wrapper>
+		<button id="begin" class="button" data-state="visible">Begin Quiz!</button>
+		</div>
+	</div>
+
+
+	 
+
+	<div ID="game" class ="card" style ="display: none;">
+		
+		<div ID = "question"></div>
+		
+		<div id ="choices">
+
+			<button class="choice" id="A" onclick="answerVerify('A')">Answer A</button>
+				
+			<button class="choice" id="B" onclick="answerVerify('B')">Answer B</button>
+				
+			<button class="choice" id="C" onclick="answerVerify('C')">Answer C</button>
+
+			<button class="choice" id="D" onclick="answerVerify('D')">Answer D</button>				
+
+		</div>
+		
+		
+		<div class="choice-feedback">
+
+			<div id="correct" data-number="1" data-state="hidden">Correct!</div>
+
+			<div id="incorrect" data-number="2" data-state="hidden">Incorrect!</div>
+			
+		</div>
+
+	</div>
+
+
+
+</div>
+
+
+	<script src="/assets/js/script.js"></script>
+</body>
+</html>
