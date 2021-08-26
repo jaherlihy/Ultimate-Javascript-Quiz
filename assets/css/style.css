@@ -1,3 +1,15 @@
+/* @font-face {
+  font-family: "HelveticaNeueLTPro-Th";
+  src: url("../fonts/HelveticaNeueLTPro-Th.otf") format("openttype"),
+    url("../fonts/HelveticaNeueLTPro-Th.ttf") format("truettype"),
+    url("../fonts/HelveticaNeueLTPro-Th.eot") format("embedded-openttype"),
+    url("../fonts/HelveticaNeueLTPro-Th.woff") format("woff"),
+    url("../fonts/HelveticaNeueLTPro-Th.woff2") format("woff2"),
+    url("../fonts/HelveticaNeueLTPro-Th.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  } */
+
 root {
   --off-white: #eae7dc;
   --tan: #d8c3a5;
@@ -36,7 +48,7 @@ body,
 
 body {
   font-family: sans-serif;
-  background: url("../images/photo-1519606247872-0440aae9b827.jpg");
+  background: url("..//images/photo-1519606247872-0440aae9b827.jpg");
 }
 
 .scoreboard-body {
@@ -57,7 +69,7 @@ body {
   margin: 10px 0 0 25px;
   padding: 10px 20px 10px 20px;
   box-shadow: #363636 10px 12px 20px 0px;
-  background: url("../images/dried-wood-bg.jpg");
+  background: url("..//images/dried-wood-bg.jpg");
 }
 
 #return-btn:hover {
@@ -65,7 +77,7 @@ body {
 }
 
 .button {
-  background: url("../images/button-bg.jpg");
+  background: url("..//images/button-bg.jpg");
   border-radius: 10px;
   font-size: 20px;
 }
@@ -93,7 +105,7 @@ body {
   padding: 5px 15px 5px 15px;
   border-radius: 10px;
   border: 1px solid rgb(73, 56, 49);
-  background: url("../images/button-bg.jpg");
+  background: url("..//images/button-bg.jpg");
   box-shadow: #000000 10px 12px 20px 0px;
 }
 
@@ -173,7 +185,7 @@ header {
   padding: 10px;
   display: flex;
   flex-direction: column;
-  background: url("../images/wood-grain.jpg"), center;
+  background: url("..//images/wood-grain.jpg"), center;
 }
 
 #question {
@@ -202,7 +214,7 @@ header {
   cursor: pointer;
   padding: 5px;
   font-size: 20px;
-  background: url("../images/button-bg.jpg");
+  background: url("..//images/button-bg.jpg");
 }
 
 .choice:hover {

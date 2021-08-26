@@ -1,11 +1,10 @@
 var intro = document.getElementById("intro-title-card");
-var startButton = document.getElementById("begin");
-
-var timerElement = document.querySelector(".timer-count");
-
 var game = document.getElementById("game");
-var question = document.getElementById("question");
+var startButton = document.getElementById("begin");
+var outro = document.getElementById("outro");
+// var textBox = 
 
+var question = document.getElementById("question");
 var choiceA = document.getElementById("A");
 var choiceB = document.getElementById("B");
 var choiceC = document.getElementById("C");
@@ -13,6 +12,14 @@ var choiceD = document.getElementById("D");
 
 var right = document.getElementById("correct");
 var wrong = document.getElementById("incorrect");
+
+var timerElement = document.querySelector(".timer-count");
+
+var submitInitals
+var initials
+var scoreListing
+
+
 
 
 
@@ -50,8 +57,6 @@ var questions = [
 
 var prevQuestion = questions.length -1;
 var currentQuestion = 0;
-
-
 
 
 function questionDisplay() {
@@ -100,12 +105,22 @@ function startGame() {
 		currentQuestion++;
 		setTimeout (questionDisplay, 1000);
 
-	}else{
+	}else if (currentQuestion == prevQuestion)  {
+		
+		clearInterval(timer);
+		console.log("all done!");
+		var score = timerCount
+		console.log("your score is: " + score);
+		setTimeout (gameWin, 1000);
+		
+		
+	} else {
 
 		clearInterval(timer);
 		
 	}
 
+	
 }
 
 function correctAnswer() {
@@ -117,7 +132,14 @@ function incorrectAnswer() {
 	
 }
 
+function gameWin () {
+	right.hidden = true;
+	wrong.hidden = true;
+	game.style.display = "none";
+	outro.style.display = "block";
 
+
+}
 
 
 function startTimer() { 
@@ -132,7 +154,7 @@ function startTimer() {
 	  
 	  if (timerCount === 0) {
 		clearInterval(timer);
-
+		gameLose()
 
 		
 	  }
