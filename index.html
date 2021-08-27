@@ -68,36 +68,43 @@
 
 	<div ID="outro" class ="card" style ="display: none;">
 
-		<div ID="hide-form" style ="display: none;">
+		<div class="outro-container">
 
-			<header>
+			
 			<h1 class="h1">All done!</h1>
-			</header>
-
 			<h2 class="win-msg">Enter your initials below to see your score.</h2>
 			
 			<form id="score-board-entry">
 
 				<input id="text-box" type="text" class="text-box" placeholder="Enter your initials">
 				<button type="submit" id="submit-btn"  class="button" value="submit">Submit</button>
-				<button type="clear" id="clear-btn"  class="button" value="clear">Clear Scores</button>
+				
 
 			</form>
 
 		</div>
 
-			<div id ="the-score-board" class ="scoreboard-wrapper" style ="display: none;">
+	</div>
 
-				<h3 id="hi-score-h3">High Scores</h3>
-				<ol id="score-board"></ol>
+	
+
+		<div id="score-board" class="card" style ="display: none;">
+
+			<div class = scoreboard-container>
+				
+				<h3 id="hi-score-h3">High Scores</h>
+				<ol id="ol"></ol>
+
+				<div class = scoreboard-footer>			
+					<button type="clear" id="clear-btn"  class="button" onclick="scoreClear()" value="clear">Clear Scores</button>
+				</div>
 
 			</div>
 
 		</div>
 
-
-
-	</div>
+	
+	
 
 
 	<script src="assets/js/script.js"></script>

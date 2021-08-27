@@ -61,7 +61,7 @@ body {
   background: url("..//images/photo-1542317366-412ab0365069.jpg");
 }
 
-.score-board-wrapper {
+.score-board-container {
   display: flex;
 }
 
@@ -294,7 +294,7 @@ header {
   background-color: hsla(0, 0%, 68%, 0.644);
 }
 
-.score-board-wrapper {
+.score-board-container {
   display: flex;
   justify-content: space-around;
 }

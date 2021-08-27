@@ -4,7 +4,7 @@ var startButton = document.getElementById("begin");
 var scoreBtn = document.getElementById("high-scores-btn");
 var outro = document.getElementById("outro");
 
-var form = document.getElementById("hide-form");
+var form = document.getElementById("outro-container");
 
 var question = document.getElementById("question");
 var choiceA = document.getElementById("A");
@@ -18,12 +18,13 @@ var timerElement = document.querySelector(".timer-count");
 
 var scrbrdForm = document.getElementById("score-board-entry");
 var textBox = document.getElementById("text-box");
-var ol = document.getElementById("score-board");
+var ol = document.getElementById("ol");
 var li = document.createElement("li");
 var submitBtn = document.getElementById("submit-btn");
 var clearBtn = document.getElementById("clear-btn");
 var score = "";
-var scoreBoard = document.getElementById("the-score-board");
+
+var scoreBoard = document.getElementById("score-board");
 // Check for saved scores
 var savedInitals = localStorage.getItem("initialItems");
 
@@ -67,19 +68,13 @@ var questions = [
 var prevQuestion = questions.length -1;
 var currentQuestion = 0;
 
-
-
-
-
 function questionDisplay() {
 	let q = questions[currentQuestion];
-
 	document.getElementById("question").textContent = q.question;
 	document.getElementById("A").textContent = q.choiceA;
 	document.getElementById("B").textContent = q.choiceB;
 	document.getElementById("C").textContent = q.choiceC;
 	document.getElementById("D").textContent = q.choiceD;
-
 	right.hidden = true;
 	wrong.hidden = true;
 }
@@ -88,9 +83,7 @@ startButton.addEventListener("click", startGame);
 
 function startGame() {
 	console.log("game has started");
-	
 	questionDisplay();
-	
 	startTimer()
 	timerCount = 60;
 	right.hidden = true;
@@ -98,121 +91,83 @@ function startGame() {
 	scoreBtn.disable = true;
 	game.style.display = "block";
 	intro.style.display = "none";
-	form.style.display = "none";
 	outro.style.display = "none";
 	scoreBoard.style.display = "none";
-  }
+}
+
 
   //VERIFY ANSWER HERE
   function answerVerify(answer){
 	if(answer == questions[currentQuestion].correct){
 		console.log("correct!");
 		correctAnswer();
-		
 	}else{
 		console.log("wrong!");
 		timerCount = timerCount - 10;
 		incorrectAnswer();
-		
 	}
 
-
+	//this uses the indexes of questions object keys to cycle increment through quiz cards
 	if(currentQuestion < prevQuestion){
-		
 		currentQuestion++;
 		setTimeout (questionDisplay, 1000);
-
+		//if the indexes are the same it stops the game
 	}else if (currentQuestion == prevQuestion)  {
-		
 		clearInterval(timer);
 		console.log("all done!");
 		score = timerCount
 		console.log("your score is: " + score);
 		setTimeout (gameWin, 1000);
-		
-		
+	//safety feature to clear the timer
 	} else {
-
-		clearInterval(timer);
-		
+		clearInterval(timer);	
 	}
-
-	
 }
 
+
+//Displays feedback correct/incorrect text at bottom of card when user clicks mult. choice answer
 function correctAnswer() {
 	right.hidden = false;
 }
 
 function incorrectAnswer() {
 	wrong.hidden = false;
-	
 }
 
+
+//brings user to scoreboard entry form
 function gameWin () {
 	right.hidden = true;
 	wrong.hidden = true;
-	game.style.display = "none";
 	scoreBtn.disable = true;
+	game.style.display = "none";
 	outro.style.display = "block";
-	form.style.display = "block";
-	scoreBoard.style.display = "block";
-
+	scoreBoard.style.display = "none";
 }
 
-// scoreBtn.addEventListener("click", scoreClick);
 
-
-
-
+//Toggles between intro card and the scoreboard
 function scoreClick(){
-
 	console.log("high score click!");
 
-	if (intro.style.display = "block"){
+	if (intro.style.display == "block"){
 		
 		intro.style.display = "none";
-
-		
-
-		outro.style.display = "block";
-
 		scoreBoard.style.display = "block";
+		scoreBtn.textContent = "Return";
 
-		// form.style.display = "none";
-
-
-	} else if  (outro.style.display = "block") {
+	} else if (intro.style.display = "none"){ 
 
 		intro.style.display = "block";
-
-		outro.style.display = "none";
-
 		scoreBoard.style.display = "none";
-
-
-
-
-
-
-		// form.style.display = "none";
-
+		scoreBtn.textContent = "High Scores";
 	}
-
-		
-
-	}
+}
 
 
 
 
-
-
-
-
-
-
-
+//This is the entry form for the player to enter their name after winning a round
 scrbrdForm.addEventListener("submit", function (event) {
 
 		// stops the form from submitting
@@ -236,13 +191,28 @@ scrbrdForm.addEventListener("submit", function (event) {
 		//prevent multiple entries by disabling button
 		submitBtn.disable = true;
 
-		form.style.display = "none";
+		outro.style.display = "none";
+
+		scoreBoard.style.display = "block";
+
+		//changes nav button text to return when viewing high scores after form submission 
+		scoreBtn.textContent = "Return";
+
+		console.log ("player score submitted!");
 
 	}, false);
 
 
 
+//Clears user names and scores from local memory
+function scoreClear() {
+console.log("scoreboard cleared!");
 
+}
+
+
+
+//This is the game timer
 function startTimer() { 
 	timer = setInterval(function() {
 	  timerCount--;
@@ -261,6 +231,3 @@ function startTimer() {
 	  }
 	}, 1000);
   }
-
-
-
