@@ -7,7 +7,8 @@
     <title>Javascript Quiz</title>
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body>
+<body>
+
 
 <nav class = "nav-bar">
 
@@ -21,16 +22,19 @@
     
 </nav>
 	
-<div class="wrapper">
+
+<main class="main">
+
+
 
 	<div ID="intro-title-card" class ="card">
 
-		<header>
-			<h1 class="h1">The Ultimate Javascript Quiz</h1>
-		</header>
+		
+		<h1 class="h1">The Ultimate Javascript Quiz</h1>
+		
 
-		<h2 class="intro">Answer as many questions as possible before the timer runs out. You receive a penalty of -10 seconds from the timer for every incorrect answer. If you answer all the questions before the timer runs out the remaining time becomes your score.
-		</h2>
+		<p class="intro-text">Answer as many questions as possible before the timer runs out. If you answer all the questions before the timer runs out the remaining time becomes your score. For every incorrect answer chosen you will receive a penalty of -10 seconds from the timer.  If you run out of time before answering all of the question then it will result in a loss.
+		</p>
 		
 		<div class = start-btn-wrapper>
 			<button id="begin" class="button">Begin Quiz!</button>
@@ -39,7 +43,6 @@
 	</div>
 
 
-	 
 
 	<div ID="game" class ="card" style ="display: none;">
 		
@@ -65,12 +68,10 @@
 
 
 
-
 	<div ID="outro" class ="card" style ="display: none;">
 
 		<div class="outro-container">
 
-			
 			<h1 class="h1">All done!</h1>
 			<h2 class="win-msg">Enter your initials below to see your score.</h2>
 			
@@ -79,7 +80,6 @@
 				<input id="text-box" type="text" class="text-box" placeholder="Enter your initials">
 				<button type="submit" id="submit-btn"  class="button" value="submit">Submit</button>
 				
-
 			</form>
 
 		</div>
@@ -88,25 +88,24 @@
 
 	
 
-		<div id="score-board" class="card" style ="display: none;">
+	<div id="score-board" class="card" style ="display: none;">
 
-			<div class = scoreboard-container>
+		<div class = scoreboard-container>
 				
-				<h3 id="hi-score-h3">High Scores</h>
-				<ol id="ol"></ol>
+			<h3 id="hi-score-h3">High Scores</h>
+			<ol id="ol"></ol>
 
-				<div class = scoreboard-footer>			
-					<button type="clear" id="clear-btn"  class="button" onclick="scoreClear()" value="clear">Clear Scores</button>
-				</div>
-
+			<div class = scoreboard-footer>			
+				<button type="clear" id="clear-btn"  class="button" onclick="scoreClear()" value="clear">Clear Scores</button>
 			</div>
 
 		</div>
 
+	</div>
+
 	
 	
-
-
+</main>
 	<script src="assets/js/script.js"></script>
 </body>
 </html>
