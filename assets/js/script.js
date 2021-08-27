@@ -4,6 +4,8 @@ var startButton = document.getElementById("begin");
 var scoreBtn = document.getElementById("high-scores-btn");
 var outro = document.getElementById("outro");
 
+var form = document.getElementById("hide-form");
+
 var question = document.getElementById("question");
 var choiceA = document.getElementById("A");
 var choiceB = document.getElementById("B");
@@ -21,7 +23,7 @@ var li = document.createElement("li");
 var submitBtn = document.getElementById("submit-btn");
 var clearBtn = document.getElementById("clear-btn");
 var score = "";
-
+var scoreBoard = document.getElementById("the-score-board");
 // Check for saved scores
 var savedInitals = localStorage.getItem("initialItems");
 
@@ -65,10 +67,9 @@ var questions = [
 var prevQuestion = questions.length -1;
 var currentQuestion = 0;
 
-// function init() {
-// 	scoreBtn.disable = false;
-// 	startButton.disable = false;
-// }
+
+
+
 
 function questionDisplay() {
 	let q = questions[currentQuestion];
@@ -87,16 +88,22 @@ startButton.addEventListener("click", startGame);
 
 function startGame() {
 	console.log("game has started");
-	intro.style.display = "none";
+	
 	questionDisplay();
-	game.style.display = "block";
+	
 	startTimer()
 	timerCount = 60;
 	right.hidden = true;
 	wrong.hidden = true;
 	scoreBtn.disable = true;
+	game.style.display = "block";
+	intro.style.display = "none";
+	form.style.display = "none";
+	outro.style.display = "none";
+	scoreBoard.style.display = "none";
   }
 
+  //VERIFY ANSWER HERE
   function answerVerify(answer){
 	if(answer == questions[currentQuestion].correct){
 		console.log("correct!");
@@ -148,8 +155,63 @@ function gameWin () {
 	game.style.display = "none";
 	scoreBtn.disable = true;
 	outro.style.display = "block";
+	form.style.display = "block";
+	scoreBoard.style.display = "block";
 
 }
+
+// scoreBtn.addEventListener("click", scoreClick);
+
+
+
+
+function scoreClick(){
+
+	console.log("high score click!");
+
+	if (intro.style.display = "block"){
+		
+		intro.style.display = "none";
+
+		
+
+		outro.style.display = "block";
+
+		scoreBoard.style.display = "block";
+
+		// form.style.display = "none";
+
+
+	} else if  (outro.style.display = "block") {
+
+		intro.style.display = "block";
+
+		outro.style.display = "none";
+
+		scoreBoard.style.display = "none";
+
+
+
+
+
+
+		// form.style.display = "none";
+
+	}
+
+		
+
+	}
+
+
+
+
+
+
+
+
+
+
 
 scrbrdForm.addEventListener("submit", function (event) {
 
@@ -173,6 +235,8 @@ scrbrdForm.addEventListener("submit", function (event) {
 
 		//prevent multiple entries by disabling button
 		submitBtn.disable = true;
+
+		form.style.display = "none";
 
 	}, false);
 

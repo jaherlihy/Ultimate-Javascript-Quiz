@@ -51,14 +51,33 @@ body {
   background: url("..//images/photo-1519606247872-0440aae9b827.jpg");
 }
 
+#hi-score-h3 {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 45px;
+}
+
 .scoreboard-body {
   background: url("..//images/photo-1542317366-412ab0365069.jpg");
 }
 
+.score-board-wrapper {
+  display: flex;
+}
+
+ol {
+  margin-top: -5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 li {
-  font-family: "Freight-DispLight", serif;
+  margin-top: -15px;
   font-size: 40px;
   font-weight: bold;
+  text-align: center;
 }
 
 .nav-bar {
