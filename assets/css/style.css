@@ -1,14 +1,14 @@
-/* @font-face {
-  font-family: "HelveticaNeueLTPro-Th";
-  src: url("../fonts/HelveticaNeueLTPro-Th.otf") format("openttype"),
-    url("../fonts/HelveticaNeueLTPro-Th.ttf") format("truettype"),
-    url("../fonts/HelveticaNeueLTPro-Th.eot") format("embedded-openttype"),
-    url("../fonts/HelveticaNeueLTPro-Th.woff") format("woff"),
-    url("../fonts/HelveticaNeueLTPro-Th.woff2") format("woff2"),
-    url("../fonts/HelveticaNeueLTPro-Th.svg") format("svg");
+@font-face {
+  font-family: "Freight-DispLight";
+  src: url("../fonts/Freight-DispLight.otf") format("openttype"),
+    url("../fonts/Freight-DispLight.ttf") format("truettype"),
+    url("../fonts/Freight-DispLight.eot") format("embedded-openttype"),
+    url("../fonts/Freight-DispLight.woff") format("woff"),
+    url("../fonts/Freight-DispLight.woff2") format("woff2"),
+    url("../fonts/Freight-DispLight.svg") format("svg");
   font-weight: normal;
   font-style: normal;
-  } */
+}
 
 root {
   --off-white: #eae7dc;
@@ -47,12 +47,18 @@ body,
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Freight-DispLight", serif;
   background: url("..//images/photo-1519606247872-0440aae9b827.jpg");
 }
 
 .scoreboard-body {
   background: url("..//images/photo-1542317366-412ab0365069.jpg");
+}
+
+li {
+  font-family: "Freight-DispLight", serif;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .nav-bar {
@@ -77,15 +83,17 @@ body {
 }
 
 .button {
+  font-family: "Freight-DispLight", serif;
   background: url("..//images/button-bg.jpg");
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 #high-scores-btn {
   padding: 20px 35px 20px 35px;
   width: 210px;
-  font-size: 20px;
+  /* font-size: 20px; */
   box-shadow: #000000 10px 12px 20px 0px;
   margin-left: 25px;
   border: 1px solid rgb(58, 56, 56);
@@ -94,6 +102,7 @@ body {
 #high-scores-btn:hover {
   cursor: pointer;
   font-weight: 600;
+  border: 2px solid rgb(58, 56, 56);
 }
 
 .timer-wrapper {
@@ -111,16 +120,17 @@ body {
 
 .timer-text {
   margin-top: 5px;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .h1 {
+  font-size: 50px;
   color: hsl(20, 12%, 10%);
 }
 
 .timer-count {
-  margin-top: -15px;
-  font-size: 20px;
+  margin-top: -30px;
+  font-size: 35px;
 }
 
 .intro {
@@ -128,6 +138,7 @@ body {
   margin-left: 20px;
   margin-right: 20px;
   padding-bottom: 10px;
+  font-size: 33px;
 }
 
 .start-btn-wrapper {
@@ -137,7 +148,7 @@ body {
 }
 
 #begin {
-  font-size: 25px;
+  font-size: 30px;
   height: 60px;
   width: 175px;
   display: block;
@@ -189,10 +200,12 @@ header {
 }
 
 #question {
+  font-family: "Freight-DispLight", serif;
   margin: 20px;
   padding-bottom: 10px;
-  font-size: 30px;
+  font-size: 40px;
   text-align: center;
+  font-weight: 600;
 }
 
 #choices {
@@ -205,6 +218,7 @@ header {
 }
 
 .choice {
+  font-family: "Freight-DispLight", serif;
   width: 155px;
   margin: 7px;
   height: 40px;
@@ -213,7 +227,8 @@ header {
   border-radius: 15px;
   cursor: pointer;
   padding: 5px;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: 500;
   background: url("..//images/button-bg.jpg");
 }
 
