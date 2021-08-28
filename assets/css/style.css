@@ -40,6 +40,10 @@ body {
   background: url("..//images/photo-1519606247872-0440aae9b827.jpg");
 }
 
+.main {
+  margin-top: 4%;
+}
+
 #hi-score-h3 {
   margin-top: 10px;
   text-align: center;
@@ -52,14 +56,6 @@ body {
 
 .score-board-container {
   display: flex;
-}
-
-ol {
-  margin-top: -5px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 li {
@@ -186,6 +182,7 @@ header {
 }
 
 .card {
+  letter-spacing: 1px;
   background-color: tan;
   height: 400px;
   width: 1000px;
@@ -258,6 +255,19 @@ header {
   align-items: center;
 }
 
+#score-board-entry {
+  display: flex;
+  justify-content: center;
+}
+
+.outro-container {
+  padding-top: 8%;
+}
+
+.win-msg {
+  text-align: center;
+}
+
 .score-header-container {
   display: flex;
   justify-content: space-around;
@@ -270,11 +280,12 @@ header {
   color: hsl(20, 12%, 10%);
   background-color: hsla(0, 0%, 68%, 0.644);
 }
-
+/* 
 .score-board-container {
   display: flex;
   justify-content: space-around;
-}
+  height: 100%;
+} */
 
 .score-board-container {
   margin-top: 25px;
@@ -284,4 +295,45 @@ header {
   box-shadow: #000000 10px 12px 20px 0px;
   border-radius: 20px;
   background: url("..//images/dried-wood2.jpg"), center;
+}
+
+#hi-score-h3 {
+  height: 20px;
+}
+
+#ol {
+  margin-top: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scoreboard-footer {
+  margin-top: 200px;
+  padding: 10px;
+}
+
+.h4 {
+  font-size: 55px;
+}
+
+.lose-text {
+  font-size: 35px;
+}
+
+.lose-container {
+  text-align: center;
+  margin: 15px;
+}
+
+.footer {
+  display: block;
+}
+
+.grass {
+  position: sticky;
+  width: 100%;
+  height: 5%;
+  margin-bottom: -20px;
 }

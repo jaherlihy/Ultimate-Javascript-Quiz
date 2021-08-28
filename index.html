@@ -90,12 +90,15 @@
 
 	<div id="score-board" class="card" style ="display: none;">
 
-		<div class = scoreboard-container>
-				
+		<div class = "scoreboard-container">
+			
 			<h3 id="hi-score-h3">High Scores</h>
-			<ol id="ol"></ol>
 
-			<div class = scoreboard-footer>			
+			
+				<ol id="ol"></ol>			
+		
+
+			<div class ="scoreboard-footer">			
 				<button type="clear" id="clear-btn"  class="button" onclick="scoreClear()" value="clear">Clear Scores</button>
 			</div>
 
@@ -103,8 +106,25 @@
 
 	</div>
 
+
+
+	<div id="game-lose" class="card" style ="display: none;">
+
+		<div class ="lose-container">
+				
+			<h4 class="h4">You Lose!</h>
+
+			<p class="lose-text">Unfortunately, you have run out of time before answering all of the questions. Click the return button in the upper-left to start over and try again.
+			</p>
+			
+		</div>
+
+	</div>
+
 	
-	
+	<footer class="footer">
+	<img class="grass" src="assets/images/grass.png" alt="green grass">
+	</footer>
 </main>
 	<script src="assets/js/script.js"></script>
 </body>

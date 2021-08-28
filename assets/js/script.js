@@ -1,10 +1,11 @@
 var intro = document.getElementById("intro-title-card");
 var game = document.getElementById("game");
+var outro = document.getElementById("outro");
+var form = document.getElementById("outro-container");
+var loseGame = document.getElementById("game-lose");
+
 var startButton = document.getElementById("begin");
 var scoreBtn = document.getElementById("high-scores-btn");
-var outro = document.getElementById("outro");
-
-var form = document.getElementById("outro-container");
 
 var question = document.getElementById("question");
 var choiceA = document.getElementById("A");
@@ -65,7 +66,7 @@ var questions = [
 	}
 ];
 
-var prevQuestion = questions.length -1;
+var prevQuestion = questions.length -1 ;
 var currentQuestion = 0;
 
 function questionDisplay() {
@@ -79,6 +80,31 @@ function questionDisplay() {
 	wrong.hidden = true;
 }
 
+
+//Toggles between intro card and the scoreboard
+function scoreClick(){
+	console.log("nav button clicked!");
+	
+	loseGame.style.display = "none";
+
+	if (intro.style.display == "block"){
+		
+		intro.style.display = "none";
+		scoreBoard.style.display = "block";
+		scoreBtn.textContent = "Return";
+
+	} else if (intro.style.display = "none"){ 
+
+		intro.style.display = "block";
+		scoreBoard.style.display = "none";
+		scoreBtn.textContent = "High Scores";
+	}
+}
+
+
+
+
+
 startButton.addEventListener("click", startGame); 
 
 function startGame() {
@@ -88,15 +114,17 @@ function startGame() {
 	timerCount = 60;
 	right.hidden = true;
 	wrong.hidden = true;
-	scoreBtn.disable = true;
+	scoreBtn.disabled = true;
 	game.style.display = "block";
 	intro.style.display = "none";
 	outro.style.display = "none";
 	scoreBoard.style.display = "none";
+	
+	
 }
 
 
-  //VERIFY ANSWER HERE
+  //uses letter in the function to check against current question's answer letter
   function answerVerify(answer){
 	if(answer == questions[currentQuestion].correct){
 		console.log("correct!");
@@ -107,7 +135,7 @@ function startGame() {
 		incorrectAnswer();
 	}
 
-	//this uses the indexes of questions object keys to cycle increment through quiz cards
+	//checks 0 against the length of the questions array -1 in order to display the next question
 	if(currentQuestion < prevQuestion){
 		currentQuestion++;
 		setTimeout (questionDisplay, 1000);
@@ -117,6 +145,7 @@ function startGame() {
 		console.log("all done!");
 		score = timerCount
 		console.log("your score is: " + score);
+
 		setTimeout (gameWin, 1000);
 	//safety feature to clear the timer
 	} else {
@@ -139,75 +168,61 @@ function incorrectAnswer() {
 function gameWin () {
 	right.hidden = true;
 	wrong.hidden = true;
-	scoreBtn.disable = true;
+	scoreBtn.disabled = true;
 	game.style.display = "none";
 	outro.style.display = "block";
 	scoreBoard.style.display = "none";
+	
 }
-
-
-//Toggles between intro card and the scoreboard
-function scoreClick(){
-	console.log("high score click!");
-
-	if (intro.style.display == "block"){
-		
-		intro.style.display = "none";
-		scoreBoard.style.display = "block";
-		scoreBtn.textContent = "Return";
-
-	} else if (intro.style.display = "none"){ 
-
-		intro.style.display = "block";
-		scoreBoard.style.display = "none";
-		scoreBtn.textContent = "High Scores";
-	}
-}
-
-
 
 
 //This is the entry form for the player to enter their name after winning a round
 scrbrdForm.addEventListener("submit", function (event) {
 
-		// stops the form from submitting
-		event.preventDefault();
+	// stops the form from submitting
+	event.preventDefault();
 
-		// Ignore if the name is too long or short
-		if (textBox.value.length < 1 || textBox.value.length > 10) return;
+	// Ignore if the name is too long or short
+	if (textBox.value.length < 1 || textBox.value.length > 10) return;
 
-		ol.appendChild(li)
-		// Add name to the scoreboard
-		li.textContent += textBox.value + " - " + score;
+	ol.appendChild(li)
+	
+	li.textContent += textBox.value + " - " + score;
 
-		
+	// for (let i = 0; i < ol.length; i++) {
 
-		// Clear input after submitting
-		textBox.value = "";
 
-		// Save the list to localStorage
-		localStorage.setItem("initialsItems", textBox.textContent);
+	// }
 
-		//prevent multiple entries by disabling button
-		submitBtn.disable = true;
 
-		outro.style.display = "none";
+	// Clear input after submitting
+	textBox.value = "";
 
-		scoreBoard.style.display = "block";
+	// Save the list to localStorage
+	localStorage.setItem("initialsItems", textBox.textContent);
 
-		//changes nav button text to return when viewing high scores after form submission 
-		scoreBtn.textContent = "Return";
+	outro.style.display = "none";
 
-		console.log ("player score submitted!");
+	scoreBoard.style.display = "block";
 
-	}, false);
+	//enables nav button 
+	scoreBtn.disabled = false;
+	//changes nav button text to return when viewing high scores after form submission 
+	scoreBtn.textContent = "Return";
+
+	currentQuestion = 0;
+
+	console.log ("player score submitted!");
+
+}, false);
 
 
 
 //Clears user names and scores from local memory
 function scoreClear() {
 console.log("scoreboard cleared!");
-
+localStorage.clear();
+ol.removeChild(li);
 }
 
 
@@ -230,4 +245,14 @@ function startTimer() {
 		
 	  }
 	}, 1000);
-  }
+}
+
+
+
+function gameLose() {
+	console.log("You lose!");
+	game.style.display = "none";
+	loseGame.style.display = "block";
+	scoreBtn.disabled = false;
+	scoreBtn.textContent = "Return";
+}
