@@ -14,18 +14,13 @@ var right = document.getElementById("correct");
 var wrong = document.getElementById("incorrect");
 var timerElement = document.querySelector(".timer-count");
 var scrbrdForm = document.getElementById("score-board-entry");
-var textBox = document.getElementById("text-box");
-var ol = document.querySelectorAll("#ol");
-var submitBtn = document.getElementById("submit-btn");
+var textBox = document.querySelector("#text-box");
+var ol = document.querySelector("#ol");
+var submitBtn = document.querySelector("#submit-btn");
 var clearBtn = document.getElementById("clear-btn");
 var score = "";
 var scoreBoard = document.getElementById("score-board");
-var savedInitals = localStorage.getItem("initialItems");
 
-// Updates the scoreboard if there are any saved scores
-if (savedInitals) {
-	ol.textContent = savedInitals;
-}
 
 var questions = [
 	{
@@ -157,7 +152,6 @@ function gameWin () {
 	scoreBoard.style.display = "none";	
 }
 
-
 //This is the entry form for the player to enter their name after winning a round
 scrbrdForm.addEventListener("submit", function (event) {
 	// stops the form from submitting
@@ -167,26 +161,30 @@ scrbrdForm.addEventListener("submit", function (event) {
 		return;
 	}
 
-	var li = document.createElement("li");
-
-	for (let i = 0; i < ol.length; i++) {
-	ol[i].appendChild(li)
-	}
-
-	li.textContent += textBox.value.toUpperCase() + " - " + score;
+	ol.innerHTML += "<li>" + textBox.value.toUpperCase() + "  -  " + score + "</li>";
 	// Clear input after submitting
 	textBox.value = "";
 	// Save the list to localStorage
-	localStorage.setItem("initialsItems", textBox.textContent);
+	localStorage.setItem("initialsItems", ol.innerHTML);
 	outro.style.display = "none";
 	scoreBoard.style.display = "block";
 	//enables nav button 
 	scoreBtn.disabled = false;
 	//changes nav button text to return when viewing high scores after form submission 
 	scoreBtn.textContent = "Return";
+	//resets the quiz cards
 	currentQuestion = 0;
 	console.log ("player score submitted!");
 }, false);
+
+
+// var savedInitials = localStorage.getItem("initialsItems");
+
+// If there are saved initials then a new key wont be created and the value will be added to it
+// if (savedInitials) {
+// 	ol.innerHTML = saved;
+// }
+
 
 
 //Clears user names and scores from local memory
@@ -215,7 +213,7 @@ function startTimer() {
 	}, 1000);
 }
 
-
+//This is pretty hard to do but in the event that you do run out of time it calls this function which tells you to try again
 function gameLose() {
 	console.log("You lose!");
 	game.style.display = "none";
