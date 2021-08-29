@@ -178,12 +178,12 @@ scrbrdForm.addEventListener("submit", function (event) {
 }, false);
 
 
-// var savedInitials = localStorage.getItem("initialsItems");
+var savedInitials = localStorage.getItem("initialsItems");
 
-// If there are saved initials then a new key wont be created and the value will be added to it
-// if (savedInitials) {
-// 	ol.innerHTML = saved;
-// }
+//loads saved initials on score when you refresh/leave site and return
+if (savedInitials) {
+	ol.innerHTML = saved;
+}
 
 
 
