@@ -113,7 +113,6 @@ function startGame() {
 		timerCount = timerCount - 10;
 		incorrectAnswer();
 	}
-
 	//checks 0 against the length of the questions array -1 in order to display the next question
 	if(currentQuestion < prevQuestion){
 		currentQuestion++;
@@ -136,7 +135,6 @@ function startGame() {
 function correctAnswer() {
 	right.hidden = false;
 }
-
 function incorrectAnswer() {
 	wrong.hidden = false;
 }
@@ -152,7 +150,8 @@ function gameWin () {
 	scoreBoard.style.display = "none";	
 }
 
-//This is the entry form for the player to enter their name after winning a round
+
+//This is the entry form for the player to enter their initials after winning a round
 scrbrdForm.addEventListener("submit", function (event) {
 	// stops the form from submitting
 	event.preventDefault();
@@ -160,7 +159,7 @@ scrbrdForm.addEventListener("submit", function (event) {
 	if (textBox.value.length < 1 || textBox.value.length > 3) {
 		return;
 	}
-
+	//applies content of textbox with HTML list tags to scoreboard
 	ol.innerHTML += "<li>" + textBox.value.toUpperCase() + "  -  " + score + "</li>";
 	// Clear input after submitting
 	textBox.value = "";
@@ -182,9 +181,8 @@ var savedInitials = localStorage.getItem("initialsItems");
 
 //loads saved initials on score when you refresh/leave site and return
 if (savedInitials) {
-	ol.innerHTML = saved;
+	ol.innerHTML = savedInitials;
 }
-
 
 
 //Clears user names and scores from local memory

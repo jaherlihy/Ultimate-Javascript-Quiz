@@ -50,10 +50,6 @@ body {
   font-size: 45px;
 }
 
-.scoreboard-body {
-  background: url("..//images/photo-1542317366-412ab0365069.jpg");
-}
-
 .score-board-container {
   display: flex;
 }
@@ -73,13 +69,6 @@ li {
   margin-left: 35px;
   margin-right: 35px;
   background: none;
-}
-
-#return-btn {
-  margin: 10px 0 0 25px;
-  padding: 10px 20px 10px 20px;
-  box-shadow: #363636 10px 12px 20px 0px;
-  background: url("..//images/dried-wood-bg.jpg");
 }
 
 #return-btn:hover {
@@ -279,16 +268,6 @@ header {
   font-size: 40px;
   color: hsl(20, 12%, 10%);
   background-color: hsla(0, 0%, 68%, 0.644);
-}
-
-.score-board-container {
-  margin-top: 25px;
-  height: 640px;
-  width: 400px;
-  border: 1px solid black;
-  box-shadow: #000000 10px 12px 20px 0px;
-  border-radius: 20px;
-  background: url("..//images/dried-wood2.jpg"), center;
 }
 
 #hi-score-h3 {
