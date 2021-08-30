@@ -45,7 +45,7 @@ var questions = [
 		choiceD: "10",
 		correct: "A"
 	},{
-		question: "Which function returns the largest integer >= to a given number?",
+		question: "Which function returns the largest integer >= to a number?",
 		choiceA: "Math.round( )",
 		choiceB: "Math.ceil( )",
 		choiceC: "Math.floor( )",
@@ -88,6 +88,7 @@ function scoreClick(){
 
 startButton.addEventListener("click", startGame); 
 
+//starts the timer and displays the first quiz card
 function startGame() {
 	console.log("game has started");
 	questionDisplay();
@@ -131,7 +132,7 @@ function startGame() {
 }
 
 
-//Displays feedback correct/incorrect text at bottom of card when user clicks mult. choice answer
+//Displays correct/incorrect feedback text at bottom of card when user clicks mult. choice answer
 function correctAnswer() {
 	right.hidden = false;
 }
@@ -140,7 +141,7 @@ function incorrectAnswer() {
 }
 
 
-//brings user to scoreboard entry form
+//Brings user to scoreboard entry form
 function gameWin () {
 	right.hidden = true;
 	wrong.hidden = true;
