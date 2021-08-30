@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Javascript Quiz</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>The Ultimate Javascript Quiz</title>
+	<link rel="shortcut icon" type="image/jpg" href="assets/images/favicon.jpg"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
+	<style>
+	  html {
+		scrollbar-width: normal;
+		scrollbar-color: var(--tan) rgb(110, 81, 43);
+	}
+	</style>
   </head>
 <body>
 
@@ -27,10 +34,8 @@
 
 
 	<div ID="intro-title-card" class ="card">
-
 		
 		<h1 class="h1">The Ultimate Javascript Quiz</h1>
-		
 
 		<p class="intro-text">Answer as many questions as possible before the timer runs out. If you answer all the questions before the timer runs out the remaining time becomes your score. For every incorrect answer chosen you will receive a penalty of -10 seconds from the timer.  If you run out of time before answering all of the question then it will result in a loss.
 		</p>
@@ -90,10 +95,8 @@
 			
 			<h3 id="hi-score-h3">High Scores</h>
 
-			
 				<ol id="ol"></ol>			
 		
-
 			<div class ="scoreboard-footer">			
 				<button type="clear" id="clear-btn"  class="button" onclick="scoreClear()" value="clear">Clear Scores</button>
 			</div>
@@ -116,7 +119,7 @@
 
 	</div>
 
-	
+
 	<footer class="footer">
 	<img class="grass" src="assets/images/grass.png" alt="green grass">
 	</footer>
